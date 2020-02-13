@@ -16,7 +16,7 @@
     <router-link tag="li" class="pageLink" to="/excel">
       <a>
         <i class="fa fa-desktop"></i>
-        <span class="page">excel</span>
+        <span class="page">Excel</span>
       </a>
     </router-link>
 
