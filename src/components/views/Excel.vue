@@ -64,13 +64,22 @@ var update = function(instance, cell, x, y, val) {
     })
 }
 
-// var addrow = function(instance) {
-//   axios
-// }
+var addrow = function(instance) {
+  axios({
+    method: 'post',
+    url: 'http://localhost:3000/mahasiswa/',
+    data: {
+    }
+  })
+    .then((response) => {
+      console.log(response.data)
+    })
+}
 
 var options = {
   url: 'http://localhost:3000/mahasiswa',
   onchange: update,
+  oninsertrow: addrow,
   allowToolbar: true,
   columns: [
     { type: 'hidden' },
