@@ -1,13 +1,14 @@
 {
-  "mahasiswa":[
+  "mahasiswa": [
     {
-      "nrp":"05111740000128",
-      "name":"Ahmad Yahya Abdul Aziz",
-      "tl":"1999-07-01",
-      "jk":"Laki-laki",
-      "ukt":7500000,
-      "aktif":true,
-      "link":""
-    }
+      "id": 1,
+      "nrp": "05111740000129",
+      "tl": "1999-07-01",
+      "jk": "Laki-laki",
+      "ukt": 7500000,
+      "aktif": true,
+      "link": ""
+    },
+    {}
   ]
 }
