@@ -10,21 +10,21 @@
 <script>
 import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
-var data = [
-  ['05111740000128', 'Yong', '1999-07-01', 'Laki-laki', 'Rp 7500000', true, '']
-]
 var options = {
-  data: data,
+  url: 'http://localhost:3000/mahasiswa',
   allowToolbar: true,
   columns: [
-    { type: 'text', title: 'NRP', width: '150px' },
+    { type: 'text', title: 'NRP', width: '200px' },
     { type: 'text', title: 'Nama', width: '200px' },
     { type: 'calendar', title: 'Tgl Lahir', width: '100px' },
     { type: 'dropdown', title: 'Kelamin', width: '100px', source: [ 'Laki-laki', 'Perempuan' ] },
     { type: 'numeric', title: 'UKT', width: '100px', mask: 'Rp ###' },
     { type: 'checkbox', title: 'Aktif', width: '50px' },
     { type: 'image', title: 'Photo', width: '300px' }
-  ]
+  ],
+  style: {
+
+  }
 }
 export default {
   name: 'App',
