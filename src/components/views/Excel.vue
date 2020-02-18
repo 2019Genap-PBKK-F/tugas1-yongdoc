@@ -24,8 +24,8 @@ var update = function(instance, cell, x, y, val) {
         if (key === 'nrp') {
           temp[1] = response.data['nrp']
         }
-        if (key === 'nama') {
-          temp[2] = response.data['nama']
+        if (key === 'name') {
+          temp[2] = response.data['name']
         }
         if (key === 'tl') {
           temp[3] = response.data['tl']
@@ -50,7 +50,7 @@ var update = function(instance, cell, x, y, val) {
         data: {
           id: temp[0],
           nrp: temp[1],
-          nama: temp[2],
+          name: temp[2],
           tl: temp[3],
           jk: temp[4],
           ukt: temp[5],
@@ -76,10 +76,26 @@ var addrow = function(instance) {
     })
 }
 
+var delrow = function(instance, id) {
+  axios({
+    method: 'get',
+    url: 'http://localhost:3000/mahasiswa/'
+  })
+    .then((response) => {
+      var temp = Object.keys(response.data[id]).map(function (key) {
+        return response.data[id][key]
+      })
+      axios
+        .delete('http://localhost:3000/mahasiswa/' + temp[0])
+      console.log(response.data)
+    })
+}
+
 var options = {
   url: 'http://localhost:3000/mahasiswa',
   onchange: update,
   oninsertrow: addrow,
+  ondeleterow: delrow,
   allowToolbar: true,
   columns: [
     { type: 'hidden' },
