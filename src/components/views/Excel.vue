@@ -12,62 +12,34 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
+var hostname = 'localhost:8023'
+// var hostname = '10.199.14.46:8023'
 var update = function(instance, cell, x, y, val) {
-  x = parseInt(x)
-  y = parseInt(y)
-  var temp = []
-  temp[0] = y + 1
   axios
-    .get('http://localhost:3000/mahasiswa/' + temp[0])
+    .get('http://' + hostname + '/api/mahasiswa/')
     .then((response) => {
-      Object.keys(response.data).map(function (key) {
-        if (key === 'nrp') {
-          temp[1] = response.data['nrp']
-        }
-        if (key === 'name') {
-          temp[2] = response.data['name']
-        }
-        if (key === 'tl') {
-          temp[3] = response.data['tl']
-        }
-        if (key === 'jk') {
-          temp[4] = response.data['jk']
-        }
-        if (key === 'ukt') {
-          temp[5] = response.data['ukt']
-        }
-        if (key === 'aktif') {
-          temp[6] = response.data['aktif']
-        }
-        if (key === 'link') {
-          temp[7] = response.data['link']
-        }
+      var index = Object.values(response.data[y])
+      index[x] = val
+      console.log(index)
+      axios.put('http://' + hostname + '/api/mahasiswa/' + index[0], {
+        id: index[0],
+        nrp: index[1],
+        name: index[2],
+        jk: index[3],
+        tl: index[4],
+        ukt: index[5],
+        aktif: index[6],
+        link: index[7]
+      }).then((res) => {
+        console.log(res.data)
       })
-      temp[x] = val
-      axios({
-        method: 'put',
-        url: 'http://localhost:3000/mahasiswa/' + temp[0],
-        data: {
-          id: temp[0],
-          nrp: temp[1],
-          name: temp[2],
-          tl: temp[3],
-          jk: temp[4],
-          ukt: temp[5],
-          aktif: temp[6],
-          link: temp[7]
-        }
-      })
-        .then((response) => {
-          console.log(response.data)
-        })
     })
 }
 
 var addrow = function(instance) {
   axios({
     method: 'post',
-    url: 'http://localhost:3000/mahasiswa/',
+    url: 'http://' + hostname + '/api/mahasiswa/',
     data: {
     }
   })
@@ -79,43 +51,43 @@ var addrow = function(instance) {
 var delrow = function(instance, id) {
   axios({
     method: 'get',
-    url: 'http://localhost:3000/mahasiswa/'
+    url: 'http://' + hostname + '/api/mahasiswa/'
   })
     .then((response) => {
       var temp = Object.keys(response.data[id]).map(function (key) {
         return response.data[id][key]
       })
       axios
-        .delete('http://localhost:3000/mahasiswa/' + temp[0])
+        .delete('http://' + hostname + '/api/mahasiswa/' + temp[0])
       console.log(response.data)
     })
 }
 
-var options = {
-  url: 'http://localhost:3000/mahasiswa',
-  onchange: update,
-  oninsertrow: addrow,
-  ondeleterow: delrow,
-  allowToolbar: true,
-  columns: [
-    { type: 'hidden' },
-    { type: 'text', title: 'NRP', width: '200px' },
-    { type: 'text', title: 'Nama', width: '200px' },
-    { type: 'calendar', title: 'Tgl Lahir', width: '100px' },
-    { type: 'dropdown', title: 'Kelamin', width: '100px', source: [ 'Laki-laki', 'Perempuan' ] },
-    { type: 'numeric', title: 'UKT', width: '100px', mask: 'Rp ###' },
-    { type: 'checkbox', title: 'Aktif', width: '50px' },
-    { type: 'image', title: 'Photo', width: '300px' }
-  ],
-  style: {
-
-  }
-}
 export default {
   name: 'App',
   mounted: function () {
-    let spreadsheet = jexcel(this.$el, options)
-    Object.assign(this, { spreadsheet })
+    axios.get('http://' + hostname + '/api/mahasiswa/').then(res => {
+      console.log(res.data)
+      var jexcelOptions = {
+        data: res.data,
+        onchange: update,
+        oninsertrow: addrow,
+        ondeleterow: delrow,
+        allowToolbar: true,
+        columns: [
+          { type: 'hidden' },
+          { type: 'text', title: 'NRP', width: '200px' },
+          { type: 'text', title: 'Nama', width: '200px' },
+          { type: 'dropdown', title: 'Kelamin', width: '100px', source: [ 'Laki-laki', 'Perempuan' ] },
+          { type: 'calendar', title: 'Tgl Lahir', width: '100px' },
+          { type: 'numeric', title: 'UKT', width: '100px' },
+          { type: 'checkbox', title: 'Aktif', width: '50px' },
+          { type: 'image', title: 'Photo', width: '300px' }
+        ]
+      }
+      let spreadsheet = jexcel(this.$el, jexcelOptions)
+      Object.assign(this, { spreadsheet })
+    })
   }
 }
 </script>
