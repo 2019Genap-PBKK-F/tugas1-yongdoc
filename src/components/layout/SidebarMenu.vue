@@ -1,50 +1,56 @@
 <template>
   <ul class="sidebar-menu">
     <li class="header">Data Base</li>
-    <router-link tag="li" class="pageLink" to="/jenissatker">
+    <router-link tag="li" class="pageLink" to="/user/konkin">
+      <a>
+        <i class="fa fa-desktop"></i>
+        <span class="page">Kontrak Kinerja</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/user/jenissatker">
       <a>
         <i class="fa fa-desktop"></i>
         <span class="page">Jenis Satuan Kerja</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/datadasar">
+    <router-link tag="li" class="pageLink" to="/user/datadasar">
       <a>
         <i class="fa fa-book"></i>
         <span class="page">Data Dasar</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/periode">
+    <router-link tag="li" class="pageLink" to="/user/periode">
       <a>
         <i class="fa fa-calendar"></i>
         <span class="page">Periode</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/aspek">
+    <router-link tag="li" class="pageLink" to="/user/aspek">
       <a>
         <i class="fa fa-table"></i>
         <span class="page">Aspek</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/masterindikator">
+    <router-link tag="li" class="pageLink" to="/user/masterindikator">
       <a>
         <i class="fa fa-hdd-o"></i>
         <span class="page">Master Indikator</span>
         <small class="label pull-right bg-blue">UPDATE</small>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/satuankerja">
+    <router-link tag="li" class="pageLink" to="/user/satuankerja">
       <a>
         <i class="fa fa-file"></i>
         <span class="page">Satuan Kerja</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/indikatorperiode">
+    <router-link tag="li" class="pageLink" to="/user/indikatorperiode">
       <a>
         <i class="fa fa-circle-o"></i>
         <span class="page">Indikator Periode</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/capaianunit">
+    <router-link tag="li" class="pageLink" to="/user/capaianunit">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Capaian Unit</span>
@@ -53,31 +59,31 @@
     </router-link>
 
     <li class="header">Data Universitas</li>
-    <router-link tag="li" class="pageLink" to="/abmas">
+    <router-link tag="li" class="pageLink" to="/user/abmas">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Abmas</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/dosen">
+    <router-link tag="li" class="pageLink" to="/user/dosen">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Dosen</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/penelitian">
+    <router-link tag="li" class="pageLink" to="/user/penelitian">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Penelitian</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/publikasi">
+    <router-link tag="li" class="pageLink" to="/user/publikasi">
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Publikasi</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/setting">
+    <router-link tag="li" class="pageLink" to="/user/setting">
       <a>
         <i class="fa fa-cog"></i>
         <span class="page">Settings</span>
@@ -116,36 +122,22 @@
     </li>
 
     <li class="header">LOGS</li>
-    <router-link tag="li" class="pageLink" to="/access">
+    <router-link tag="li" class="pageLink" to="/user/access">
       <a>
         <i class="fa fa-book"></i>
         <span class="page">Access</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/server">
+    <router-link tag="li" class="pageLink" to="/user/server">
       <a>
         <i class="fa fa-hdd-o"></i>
         <span class="page">Server</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/repos">
+    <router-link tag="li" class="pageLink" to="/user/repos">
       <a>
         <i class="fa fa-heart"></i>
         <span class="page">Repos</span>
-      </a>
-    </router-link>
-
-    <li class="header">PAGES</li>
-    <router-link tag="li" class="pageLink" to="/login">
-      <a>
-        <i class="fa fa-circle-o text-yellow"></i>
-        <span class="page"> Login</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/404">
-      <a>
-        <i class="fa fa-circle-o text-red"></i>
-        <span class="page"> 404</span>
       </a>
     </router-link>
   </ul>

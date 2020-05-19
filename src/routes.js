@@ -20,15 +20,15 @@ import AbmasView from './components/views/Abmas.vue'
 import DosenView from './components/views/Dosen.vue'
 import PenelitianView from './components/views/Penelitian.vue'
 import PublikasiView from './components/views/Publikasi.vue'
+import KonkinView from './components/views/Konkin.vue'
 
 // Routes
 const routes = [
   {
-    path: '/login',
-    component: LoginView
-  },
-  {
     path: '/',
+    component: LoginView
+  }, {
+    path: '/user',
     component: DashView,
     children: [
       {
@@ -42,6 +42,11 @@ const routes = [
         component: DataDasarView,
         name: 'Data Dasar',
         meta: {description: 'Data Dasar'}
+      }, {
+        path: 'konkin',
+        component: KonkinView,
+        name: 'Kontrak Kinerja',
+        meta: {description: 'Kontrak Kinerja'}
       }, {
         path: 'abmas',
         component: AbmasView,

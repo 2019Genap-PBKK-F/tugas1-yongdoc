@@ -1,7 +1,6 @@
 <template>
   <div id="login">
-    <img src="/static/img/logo.png" class="center-block logo">
-
+    <img src="/static/img/its.png" class="center-block logo">
     <div class="text-center col-sm-12">
       <!-- login form -->
       <form @submit.prevent="checkCreds">
@@ -50,36 +49,27 @@ export default {
         .request('post', '/login', { username, password })
         .then(response => {
           this.toggleLoading()
-
           var data = response.data
+          console.log(data)
           /* Checking if error object was returned from the server */
-          if (data.error) {
-            var errorName = data.error.name
-            if (errorName) {
-              this.response =
-                errorName === 'InvalidCredentialsError'
-                  ? 'Username/Password incorrect. Please try again.'
-                  : errorName
-            } else {
-              this.response = data.error
-            }
-
+          if (data.length === 0) {
+            this.response = 'Invalid Email / Password, Please try again'
             return
           }
 
           /* Setting user in the state and caching record to the localStorage */
-          if (data.user) {
-            var token = 'Bearer ' + data.token
+          if (data[0]) {
+            var token = 'Bearer ' + data[0].id_sk
 
-            this.$store.commit('SET_USER', data.user)
+            this.$store.commit('SET_USER', data[0].nama)
             this.$store.commit('SET_TOKEN', token)
 
             if (window.localStorage) {
-              window.localStorage.setItem('user', JSON.stringify(data.user))
+              window.localStorage.setItem('user', data[0].nama)
               window.localStorage.setItem('token', token)
             }
-
-            this.$router.push(data.redirect ? data.redirect : '/')
+            console.log(window.localStorage)
+            this.$router.push(data.redirect ? data.redirect : '/user')
           }
         })
         .catch(error => {
