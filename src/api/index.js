@@ -12,7 +12,8 @@ export default {
       return
     }
 
-    var url = 'http://localhost:8023/api' + uri
+    // var url = 'http://localhost:8023/api' + uri
+    var url = 'http://10.199.14.46:8023/api' + uri
     return axios({ method, url, data })
   }
 }

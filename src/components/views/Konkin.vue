@@ -36,7 +36,7 @@
           <td>{{ insatker.Indikator }}</td>
           <td>{{ insatker.Bobot }}</td>
           <td>{{ insatker.Target }}</td>
-          <td>{{ insatker.Capaian }}</td>
+          <td>{{ fixedcapaian(insatker.Capaian) }} ({{ persentase(insatker.Target , insatker.Capaian) }}%)</td>
         </tr>
       </tbody>
     </table>
@@ -47,8 +47,8 @@
 import 'webdatarocks/webdatarocks.min.css'
 import axios from 'axios'
 
-// var host = 'http://10.199.14.46:8023/'
-var host = 'http://localhost:8023/'
+var host = 'http://10.199.14.46:8023/'
+// var host = 'http://localhost:8023/'
 
 export default {
   name: 'App',
@@ -56,10 +56,12 @@ export default {
     return {
       indikatorData: [],
       filterSatker: [],
-      fk_satker: []
+      fk_satker: [],
+      idSatker: []
     }
   },
   mounted() {
+    this.setIdSatker(window.localStorage.getItem('token'))
     this.getSatker()
     // this.load()
   },
@@ -71,9 +73,22 @@ export default {
       })
     },
     getSatker() {
-      axios.get(host + 'api/dropdownkonkin').then(res => {
+      axios.get(host + 'api/dropdownkonkin/' + this.idSatker).then(res => {
         this.fk_satker = res.data
       })
+    },
+    setIdSatker(idsatker) {
+      this.idSatker = idsatker
+    },
+    persentase(target, capaian) {
+      if (capaian >= target) {
+        return 100
+      } else {
+        return ((capaian / target) * 100).toFixed(3)
+      }
+    },
+    fixedcapaian(capaian) {
+      return capaian.toFixed(3)
     }
   }
 }

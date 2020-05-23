@@ -10,8 +10,8 @@ import WebDataRocks from 'webdatarocks'
 import 'webdatarocks/webdatarocks.css'
 import axios from 'axios'
 
-var hostname = 'localhost:8023'
-// var hostname = '10.199.14.46:8023'
+// var hostname = 'localhost:8023'
+var hostname = '10.199.14.46:8023'
 export default {
   name: 'App',
   mounted: function () {

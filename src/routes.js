@@ -3,11 +3,6 @@ import LoginView from './components/Login.vue'
 import NotFoundView from './components/404.vue'
 
 // Import Views - Dash
-import TasksView from './components/views/Tasks.vue'
-import SettingView from './components/views/Setting.vue'
-import AccessView from './components/views/Access.vue'
-import ServerView from './components/views/Server.vue'
-import ReposView from './components/views/Repos.vue'
 import JenisSatkerView from './components/views/JenisSatker.vue'
 import DataDasarView from './components/views/DataDasar.vue'
 import PeriodeView from './components/views/Periode.vue'
@@ -32,6 +27,11 @@ const routes = [
     component: DashView,
     children: [
       {
+        path: 'konkin',
+        component: KonkinView,
+        name: 'Kontrak Kinerja',
+        meta: {description: 'Kontrak Kinerja'}
+      }, {
         path: 'jenissatker',
         alias: '',
         component: JenisSatkerView,
@@ -42,11 +42,6 @@ const routes = [
         component: DataDasarView,
         name: 'Data Dasar',
         meta: {description: 'Data Dasar'}
-      }, {
-        path: 'konkin',
-        component: KonkinView,
-        name: 'Kontrak Kinerja',
-        meta: {description: 'Kontrak Kinerja'}
       }, {
         path: 'abmas',
         component: AbmasView,
@@ -97,31 +92,6 @@ const routes = [
         component: CapaianUnitView,
         name: 'Capaian Unit',
         meta: {description: 'Capaian dari unit yang ada'}
-      }, {
-        path: 'tasks',
-        component: TasksView,
-        name: 'Tasks',
-        meta: {description: 'Tasks page in the form of a timeline'}
-      }, {
-        path: 'setting',
-        component: SettingView,
-        name: 'Settings',
-        meta: {description: 'User settings page'}
-      }, {
-        path: 'access',
-        component: AccessView,
-        name: 'Access',
-        meta: {description: 'Example of using maps'}
-      }, {
-        path: 'server',
-        component: ServerView,
-        name: 'Servers',
-        meta: {description: 'List of our servers', requiresAuth: true}
-      }, {
-        path: 'repos',
-        component: ReposView,
-        name: 'Repository',
-        meta: {description: 'List of popular javascript repos'}
       }
     ]
   }, {

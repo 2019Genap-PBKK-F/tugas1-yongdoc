@@ -59,14 +59,12 @@ export default {
 
           /* Setting user in the state and caching record to the localStorage */
           if (data[0]) {
-            var token = 'Bearer ' + data[0].id_sk
-
             this.$store.commit('SET_USER', data[0].nama)
-            this.$store.commit('SET_TOKEN', token)
+            this.$store.commit('SET_TOKEN', data[0].id_sk)
 
             if (window.localStorage) {
               window.localStorage.setItem('user', data[0].nama)
-              window.localStorage.setItem('token', token)
+              window.localStorage.setItem('token', data[0].id_sk)
             }
             console.log(window.localStorage)
             this.$router.push(data.redirect ? data.redirect : '/user')

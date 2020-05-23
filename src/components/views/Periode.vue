@@ -12,8 +12,8 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var hostname = 'localhost:8023'
-// var hostname = '10.199.14.46:8023'
+// var hostname = 'localhost:8023'
+var hostname = '10.199.14.46:8023'
 var update = function(instance, cell, x, y, val) {
   axios
     .get('http://' + hostname + '/api/periode/')

@@ -3,8 +3,9 @@
     <li class="header">Data Base</li>
     <router-link tag="li" class="pageLink" to="/user/konkin">
       <a>
-        <i class="fa fa-desktop"></i>
+        <i class="fa fa-circle"></i>
         <span class="page">Kontrak Kinerja</span>
+        <small class="label pull-right bg-green">NEW</small>
       </a>
     </router-link>
     <router-link tag="li" class="pageLink" to="/user/jenissatker">
@@ -35,7 +36,6 @@
       <a>
         <i class="fa fa-hdd-o"></i>
         <span class="page">Master Indikator</span>
-        <small class="label pull-right bg-blue">UPDATE</small>
       </a>
     </router-link>
     <router-link tag="li" class="pageLink" to="/user/satuankerja">
@@ -54,7 +54,6 @@
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Capaian Unit</span>
-        <small class="label pull-right bg-red">ERROR</small>
       </a>
     </router-link>
 
@@ -81,63 +80,6 @@
       <a>
         <i class="fa fa-tasks"></i>
         <span class="page">Publikasi</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/user/setting">
-      <a>
-        <i class="fa fa-cog"></i>
-        <span class="page">Settings</span>
-      </a>
-    </router-link>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-folder-o"></i>
-        <span class="treeview-title">Files</span>
-        <span class="pull-right-container pull-right">
-          <i class="fa fa-angle-left fa-fw"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li>
-          <a href="#">
-            <i class="fa fa-file-word-o"></i> Data 1
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-picture-o"></i> Data 2
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-pdf-o"></i> Data 3
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-picture-o"></i> Data 4
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="header">LOGS</li>
-    <router-link tag="li" class="pageLink" to="/user/access">
-      <a>
-        <i class="fa fa-book"></i>
-        <span class="page">Access</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/user/server">
-      <a>
-        <i class="fa fa-hdd-o"></i>
-        <span class="page">Server</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/user/repos">
-      <a>
-        <i class="fa fa-heart"></i>
-        <span class="page">Repos</span>
       </a>
     </router-link>
   </ul>
