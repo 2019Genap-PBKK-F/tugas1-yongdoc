@@ -73,7 +73,6 @@ export default {
         wordWrap: true,
         tableOverflow: true,
         tableHeight: '700px',
-        pagination: 20,
         columns: [
           { type: 'hidden' },
           { type: 'integer', title: 'Data Dasar', width: '200px' },

@@ -71,7 +71,6 @@ export default {
         wordWrap: true,
         tableOverflow: true,
         tableHeight: '700px',
-        pagination: 10,
         columns: [
           { type: 'hidden' },
           { type: 'text', title: 'Nama', width: '200px' },

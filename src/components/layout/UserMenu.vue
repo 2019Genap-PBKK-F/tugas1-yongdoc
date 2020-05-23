@@ -11,7 +11,6 @@
       <li class="user-header" style="height:auto;min-height:85px;padding-bottom:15px;">
         <p>
           <span>{{namauser}}</span>
-          <small v-for="role in user.roles" :key="role">{{role}}</small>
         </p>
       </li>
       <li class="user-footer">

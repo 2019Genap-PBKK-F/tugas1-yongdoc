@@ -74,7 +74,6 @@ export default {
         ondeleterow: delrow,
         allowToolbar: true,
         wordWrap: true,
-        pagination: 25,
         tableOverflow: true,
         tableHeight: '700px',
         columns: [

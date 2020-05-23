@@ -88,6 +88,9 @@ export default {
       }
     },
     fixedcapaian(capaian) {
+      if (capaian === 0) {
+        return 0
+      }
       return capaian.toFixed(3)
     }
   }

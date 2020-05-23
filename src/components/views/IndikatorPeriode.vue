@@ -70,7 +70,6 @@ export default {
         oninsertrow: addrow,
         ondeleterow: delrow,
         allowToolbar: true,
-        pagination: 15,
         wordWrap: true,
         tableOverflow: true,
         tableHeight: '700px',
