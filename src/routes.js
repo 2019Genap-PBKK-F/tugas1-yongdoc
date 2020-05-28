@@ -3,6 +3,7 @@ import LoginView from './components/Login.vue'
 import NotFoundView from './components/404.vue'
 
 // Import Views - Dash
+import KonkinView from './components/views/Konkin.vue'
 import JenisSatkerView from './components/views/JenisSatker.vue'
 import DataDasarView from './components/views/DataDasar.vue'
 import PeriodeView from './components/views/Periode.vue'
@@ -15,7 +16,6 @@ import AbmasView from './components/views/Abmas.vue'
 import DosenView from './components/views/Dosen.vue'
 import PenelitianView from './components/views/Penelitian.vue'
 import PublikasiView from './components/views/Publikasi.vue'
-import KonkinView from './components/views/Konkin.vue'
 
 // Routes
 const routes = [
